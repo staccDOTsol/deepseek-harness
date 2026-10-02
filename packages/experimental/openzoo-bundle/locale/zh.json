@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "description": "通过本地 zkapi-clientd 或 OA Chat 的 OpenRouter 后端使用 zkAPI/OpenAnonymity 路由。",
+    "title": "OpenZoo 路由"
+  }
+}

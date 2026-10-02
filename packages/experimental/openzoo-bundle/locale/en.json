@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "description": "Use zkAPI/OpenAnonymity routes from the local zkapi-clientd or OA Chat's OpenRouter backend.",
+    "title": "OpenZoo routes"
+  }
+}

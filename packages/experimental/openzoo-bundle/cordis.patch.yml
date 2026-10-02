@@ -1,0 +1,38 @@
+# Experimental OpenZoo over the shipped Web composition. The base composition
+# already mounts `llm-pi-ai` dormant; this layer gives that row two routes.
+# `zkapi` talks to the local zkapi-clientd OpenAI-compatible API. When the
+# daemon is built with the OpenZoo leCore context-recall option enabled, recall
+# runs inside zkapi-clientd before the paid zkAPI inference call. The
+# `openanonymity` route mirrors OA Chat's shipped OpenRouter backend defaults.
+
+- id: llm-pi-ai
+  name: '@deepseek-ai/dsh-llm-pi-ai'
+  config:
+    providers:
+      zkapi:
+        displayName: zkAPI / OpenAnonymity
+        api: openai-completions
+        baseURL: http://127.0.0.1:8787/v1
+        models:
+          - id: openrouter/auto
+            name: OpenRouter Auto via zkAPI
+            contextWindow: 200000
+            maxTokens: 8192
+          - id: openai/gpt-5.3-chat
+            name: OpenAI GPT-5.3 Chat via zkAPI
+            contextWindow: 200000
+            maxTokens: 8192
+      openanonymity:
+        displayName: OpenAnonymity
+        api: openai-completions
+        baseURL: https://openrouter.ai/api/v1
+        apiKeyEnv: OPENROUTER_API_KEY
+        models:
+          - id: openrouter/auto
+            name: OpenRouter Auto
+            contextWindow: 200000
+            maxTokens: 8192
+          - id: openai/gpt-5.3-chat
+            name: OpenAI GPT-5.3 Chat
+            contextWindow: 200000
+            maxTokens: 8192
