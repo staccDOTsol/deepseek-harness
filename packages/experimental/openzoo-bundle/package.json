@@ -1,0 +1,51 @@
+{
+  "dependencies": {
+    "@deepseek-ai/dsh-llm-pi-ai": "workspace:*"
+  },
+  "description": "Optional bundle that adds zkAPI and OpenAnonymity model routes to the Web composition",
+  "devDependencies": {
+    "@deepseek-ai/cordis": "workspace:~",
+    "@deepseek-ai/cordis-plugin-include": "workspace:~",
+    "js-yaml": "^4.2.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "exports": {
+    ".": {
+      "default": "./lib/index.js",
+      "types": "./lib/types/index.d.ts"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json",
+    "./src/*": "./src/*"
+  },
+  "files": [
+    "icon.svg",
+    "locale/*.json",
+    "lib/index.js",
+    "cordis.patch.yml",
+    "lib/types/**/*.d.ts"
+  ],
+  "icon": "./icon.svg",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "name": "@deepseek-ai/dsh-experimental-openzoo-bundle",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "workspace:~"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "directory": "packages/experimental/openzoo-bundle",
+    "type": "git",
+    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git"
+  },
+  "type": "module",
+  "types": "lib/types/index.d.ts",
+  "version": "0.2.0-rc.2"
+}
